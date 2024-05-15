@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Project list
+{% endblock %}
+
+{% block content %}
+
+    <section class="projects-area service-area">
+        <div class="container">
+            <h1 class="section-heading" data-aos="fade-up"><img src="/static/images/star-2.png" alt="Star"> All Projects
+                <img src="/static/images/star-2.png" alt="Star"></h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-sidebar" data-aos="fade-right">
+                        <div class="service-sidebar-inner shadow-box">
+                            <ul>
+                                {% for service in services %}
+                                    <li>
+                                        <i class="iconoir-check-circle icon"></i>
+                                        {{ service.title }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h1 class="section-heading" data-aos="fade-up"><img src="/static/images/star-2.png" alt="Star"> All
+                        Projects <img src="/static/images/star-2.png" alt="Star"></h1>
+                    {% for project in projects %}
+                        <div class="d-flex align-items-start gap-24">
+                            <div data-aos="zoom-in" class="flex-1">
+                                <div class="project-item shadow-box">
+                                    <a class="overlay-link" href="{% url 'detail_page' pk=project.id %}"></a>
+                                    <img src="/static/images/bg1.png" alt="BG" class="bg-img">
+                                    <div class="project-img">
+                                        <img src="/static/Screenshot%202024-04-25%20224439.png" alt="project">
+                                        {#                                            {% if project.image %}#}
+                                        {#                                            <img src="{{ project.image.url }}" alt="Project">#}
+                                        {#                                            {% else %}#}
+                                        {#                                            <img src="/static/images/project3.jpeg" alt="project">#}
+                                        {#                                            {% endif %}#}
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="project-info">
+                                            <p>{{ project.services }}</p>
+                                            <h1>{{ project.title }}</h1>
+                                        </div>
+                                        <a href="{% url 'detail_page' pk=project.id %}" class="project-btn">
+                                            <img src="/static/images/icon.svg" alt="Button">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

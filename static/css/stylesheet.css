@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Arial';
+    src: url('fonts/ProtestStrike-Regular.eot');
+    src: local('fonts/Protest Strike Regular'), local('ProtestStrike-Regular'),
+        url('fonts/ProtestStrike-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/ProtestStrike-Regular.woff2') format('woff2'),
+        url('fonts/ProtestStrike-Regular.woff') format('woff'),
+        url('fonts/ProtestStrike-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

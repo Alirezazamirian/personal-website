@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Contact me
+{% endblock %}
+{% block content %}
+    <section class="contact-area">
+        <div class="container">
+            <div class="gx-row d-flex justify-content-between gap-24">
+                <div class="contact-infos">
+                    <h3 data-aos="fade-up">Contact Info</h3>
+                    <ul class="contact-details">
+                        <li class="d-flex align-items-center" data-aos="zoom-in">
+                            <div class="icon-box shadow-box">
+                                {#                            <img src="/static/gamil_prev_ui.png">#}
+                                <i class="iconoir-mail"></i>
+                            </div>
+                            <div class="right">
+                                <span>MAIL me</span>
+                                <h4>{{ site.email }}</h4>
+                            </div>
+                        </li>
+
+                        <li class="d-flex align-items-center" data-aos="zoom-in">
+                            <div class="icon-box shadow-box">
+                                {#                            <img src="/static/phone_prev_ui.png">#}
+                                <i class="iconoir-phone"></i>
+                            </div>
+                            <div class="right">
+                                <span>Contact me</span>
+                                <h4>{{ site.phone }}</h4>
+                            </div>
+                        </li>
+
+                        <li class="d-flex align-items-center" data-aos="zoom-in">
+                            <div class="icon-box shadow-box">
+                                {#                            <img src="/static/location(2)_prev_ui.png">#}
+                                <i class="iconoir-position"></i>
+                            </div>
+                            <div class="right">
+                                <span>Location</span>
+                                <h4>{{ site.location| linebreaksbr }}</h4>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 data-aos="fade-up">Social Info</h3>
+
+                    <ul class="social-links d-flex align-center flex-wrap" data-aos="zoom-in">
+                        <li><a class="shadow-box" href="{{ site.github }}"><i class="iconoir-github"></i></a></li>
+                        <li><a class="shadow-box" href="{{ site.linkedin }}"><i class="iconoir-linkedin"></i></a></li>
+                        <li><a class="shadow-box" href="{{ site.telegram }}"><i class="iconoir-telegram"></i></a></li>
+                        <li><a class="shadow-box" href="{{ site.instagram }}"><i class="iconoir-instagram"></i></a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="zoom-in" class="contact-form">
+                    <div class="shadow-box">
+                        <img src="/static/images/bg1.png" alt="BG" class="bg-img">
+                        <img src="/static/images/icon3.png" alt="Icon">
+                        <h1>Let’s work <span>together.</span></h1>
+                        <form method="post" action="{% url 'contact_me' %}">
+                            {% csrf_token %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }} messenger-box-contact__msg"
+                                         style="display: block" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+
+                            {% endif %}
+
+                            <div class="input-group">
+                                {#                            <input type="text" name="full-name" id="full-name" placeholder="Name *">#}
+                                {{ form.name }}
+                                {{ form.name.errors }}
+                            </div>
+                            <div class="input-group">
+                                {#                            <input type="email" name="email" id="email" placeholder="Email *">#}
+                                {{ form.email }}
+                                {{ form.email.errors }}
+                            </div>
+                            <div class="input-group">
+                                {#                            <input type="text" name="subject" id="subject" placeholder="Your Subject *">#}
+                                {{ form.subject }}
+                                {{ form.subject.errors }}
+                            </div>
+                            <div class="input-group">
+                                {#                            <textarea name="message" id="message" placeholder="Your Message *"></textarea>#}
+                                {{ form.message }}
+                                {{ form.message.errors }}
+                            </div>
+                            <div class="input-group">
+                                <button class="theme-btn submit-btn" name="submit" type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

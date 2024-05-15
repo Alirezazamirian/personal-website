@@ -1,0 +1,37 @@
+<!DOCTYPE html><!-- saved from url=(0055)https://wpriverthemes.com/landing/gridx-html/index.html -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}
+
+    {% endblock %}</title>
+
+    <!-- Fonts -->
+    {% include 'css_references.html' %}
+</head>
+<body>
+
+<main class="main-homepage">
+
+    <!-- Header -->
+    {% include 'header.html' %}
+
+    <!-- About -->
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+</main>
+
+
+{% include 'js_references.html' %}
+</body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Project details
+{% endblock %}
+
+{% block content %}
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-content" data-aos="fade-up">
+                    <p>{{ project.services }}</p>
+                    <h1 class="section-heading"><img src="/static/images/star-2.png" alt="Star"> {{ project.title }} <img src="/static/images/star-2.png" alt="Star"></h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details -->
+        <section class="project-details-wrap">
+
+            <div class="container">
+
+                <div class="project-details-2-img mb-24" data-aos="zoom-in">
+                    <img src="/static/Screenshot%202024-04-25%20224439.png" alt="Project">
+                </div>
+
+                <div data-aos="zoom-in">
+                    <div class="project-about-2 d-flex shadow-box mb-24">
+                        <img src="/static/images/bg1.png" alt="BG" class="bg-img">
+                        <div class="left-details">
+                            <img src="/static/images/icon3.png" alt="Icon">
+                            <ul>
+                                <li>
+                                    <p>Deployment time</p>
+                                    <h4>{{ project.deployment_year.year }} / {{ project.deployment_year.month }}  </h4>
+                                </li>
+                                <li>
+                                    <p>Client</p>
+                                    <h4>{{ project.client }}</h4>
+                                </li>
+                                <li>
+                                    <p>Services</p>
+                                    <h4>{{ project.services }}</h4>
+                                </li>
+                                <li>
+                                    <p>Project type</p>
+                                    <h4>{{ project.project_type }}</h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="right-details">
+                            <h3>About project</h3>
+                        <p>{{ project.about_project }}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="container d-flex align-items-center justify-content-center" data-aos="zoom-in">
+                <a href="{{ project.url }}" class="big-btn shadow-box" target="_blank">
+                    See Project
+                </a>
+            </div>
+            
+        </section>
+{% endblock %}
